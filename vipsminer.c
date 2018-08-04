@@ -125,9 +125,9 @@ enum algos {
 	ALGO_TRIBUS,      /* Denarius jh/keccak/echo */
 	ALGO_VANILLA,     /* Vanilla (Blake256 8-rounds - double sha256) */
 	ALGO_VELTOR,      /* Skein Shavite Shabal Streebog */
-	ALGO_VIPSTAR,     /* Vipstarcoin */
+	ALGO_VIPSTAR,     /* VIPSTARCOIN */
 #ifdef USE_OPENCL
-	ALGO_VIPSTAR_CL,  /* Vipstarcoin with opencl */
+	ALGO_VIPSTAR_CL,  /* ViIPSTARCOIN with opencl */
 #endif
 	ALGO_X11EVO,      /* Permuted X11 */
 	ALGO_X11,         /* X11 */
@@ -361,10 +361,10 @@ Options:\n\
                           s3           S3\n\
                           timetravel   Timetravel (Machinecoin)\n\
                           vanilla      Blake-256 8-rounds\n\
-                          vipstar      Vipstarcoin\n"
+                          vipstar      VIPSTARCOIN\n"
 #ifdef USE_OPENCL
 "\
-                          vipstarcl    Vipstarcoin with OpenCL\n"
+                          vipstarcl    VIPSTARCOIN with OpenCL\n"
 #endif
 "\
                           x11evo       Permuted x11\n\
@@ -1096,9 +1096,9 @@ out:
 	return rc;
 }
 
-#define YES "yes!"
-#define YAY "yay!!!"
-#define BOO "booooo"
+#define YES "horetao!!!"
+#define YAY "horeteruo!!!"
+#define BOO "horinogasitao..."
 
 static int share_result(int result, struct work *work, const char *reason)
 {
@@ -1937,6 +1937,8 @@ static void stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 			case ALGO_LYRA2:
 				work_set_target(work, sctx->job.diff / (128.0 * opt_diff_factor));
 				break;
+			case ALGO_VIPSTAR:
+			case ALGO_VIPSTAR_CL:
 			default:
 				work_set_target(work, sctx->job.diff / opt_diff_factor);
 		}
