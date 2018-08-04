@@ -1938,7 +1938,9 @@ static void stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 				work_set_target(work, sctx->job.diff / (128.0 * opt_diff_factor));
 				break;
 			case ALGO_VIPSTAR:
+			#ifdef USE_OPENCL
 			case ALGO_VIPSTAR_CL:
+			#endif
 			default:
 				work_set_target(work, sctx->job.diff / opt_diff_factor);
 		}
