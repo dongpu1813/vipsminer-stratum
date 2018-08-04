@@ -1884,7 +1884,7 @@ static void stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 			for (i = 0; i < 8; i++) // prevhash
 				work->data[12+i] = ((uint32_t*)merkle_root)[i];
 			//applog_hex(&work->data[0], 80);
-		}else if (opt_algo == ALGO_HTML || opt_algo == ALGO_VIPSTAR) {
+		}else if (opt_algo == ALGO_VIPSTAR || opt_algo == ALGO_VIPSTAR_CL) {
 		for (i = 0; i < 8; i++)
 			work->data[9 + i] = be32dec((uint32_t *)merkle_root + i);
 		work->data[17] = le32dec(sctx->job.ntime);
