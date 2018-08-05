@@ -1709,7 +1709,7 @@ static bool stratum_notify(struct stratum_ctx *sctx, json_t *params)
 	version = json_string_value(json_array_get(params, p++));
 	nbits = json_string_value(json_array_get(params, p++));
 	ntime = json_string_value(json_array_get(params, p++));
-	if (!strcasecmp(algo "vipstar") || !strcasecmp(algo "vipstarcl")) {
+	if (!strcasecmp(vipstar) || !strcasecmp(vipstarcl)) {
 		hashstateroot = json_string_value(json_array_get(params, p++));
 		hashutxoroot = json_string_value(json_array_get(params, p++));
 	}
@@ -1766,7 +1766,7 @@ static bool stratum_notify(struct stratum_ctx *sctx, json_t *params)
 	hex2bin(sctx->job.version, version, 4);
 	hex2bin(sctx->job.nbits, nbits, 4);
 	hex2bin(sctx->job.ntime, ntime, 4);
-		if (!strcasecmp(algo "vipstar") || !strcasecmp(algo "vipstarcl")) {
+		if (!strcasecmp(vipstar) || !strcasecmp(vipstarcl)) {
 		hex2bin(sctx->job.hashstateroot, hashstateroot, 32);
 		hex2bin(sctx->job.hashutxoroot, hashutxoroot, 32);
 	}
